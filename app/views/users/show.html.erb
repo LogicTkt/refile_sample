@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @user.body %>
+</p>
+
+<p>
+  <strong>File:</strong>
+
+  <dl style='margin: 30px 60px;'>
+    <dt>file_name</dt>
+    <dd><%= @user.file_filename %></dd>
+    <dt>file_size</dt>
+    <dd><%= @user.file_size %></dd>
+    <dt>file_content_type</dt>
+    <dd><%= @user.file_content_type %></dd>
+  </dl>
+  <%= link_to "DL", attachment_url(@user, :file, format: @user.file_extension), download: @user.file_filename %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
